@@ -1,5 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import {BrowserRouter} from 'react-router-dom'
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import Routes from 'routes'
+
+const App = () => {
+    return (
+        <div>
+            <h3>
+                Welcome to hooks
+            </h3>
+            <BrowserRouter>
+                <Routes/>
+            </BrowserRouter>
+        </div>
+    )
+}
+
+ReactDOM.render(<App/>, document.getElementById("root"));
