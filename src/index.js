@@ -1,22 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import {BrowserRouter} from 'react-router-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 import Routes from 'routes'
-import TopBar from 'components/topBar'
-import {CurrentUserProvider} from 'context/currentUser'
+import Topbar from 'components/topbar'
+import {CurrentUserProvider} from 'contexts/currentUser'
 
 const App = () => {
-    return (
-        <div>
-            <CurrentUserProvider>
-                <BrowserRouter>
-                    <TopBar/>
-                    <Routes/>
-                </BrowserRouter>
-            </CurrentUserProvider>
-        </div>
-    )
+  return (
+    <CurrentUserProvider>
+      <Router>
+        <Topbar />
+        <Routes />
+      </Router>
+    </CurrentUserProvider>
+  )
 }
 
-ReactDOM.render(<App/>, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'))
