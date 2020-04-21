@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
+const config = require('config')
 
 const app = express();
 mongoose.connect('mongodb+srv://Sergey:pvfaty3z@cluster0-noqua.mongodb.net/LegalSystem?retryWrites=true&w=majority');
