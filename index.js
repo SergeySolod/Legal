@@ -8,9 +8,20 @@ mongoose.connect('mongodb+srv://Sergey:pvfaty3z@cluster0-noqua.mongodb.net/Legal
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 const PORT = config.get('port') || 5000
 
-app.listen(5000, () => {
-  console.log('SERVER STARTED')
-})
+async function start() {
+  try {
+    await mongoose.connect(config.get('mongoUri'), {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true
+    })
+  } catch (e) {
+    process.exit(1)
+  }
+}
+
+start()
+
+app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
