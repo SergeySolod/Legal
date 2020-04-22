@@ -49,6 +49,17 @@ app.get('/customers', (req, res) => {
   })
 })
 
+app.delete('/customers/:id', (req, res) => {
+  CustomerModel.remove({
+    _id: req.params.id
+  }).then(customer => {
+    if (customer) {
+      res.json({ status: 'deleted' })
+    } else {
+      res.json({ status: 'error' })
+    }
+  })
+})
 
 app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
 
