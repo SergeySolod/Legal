@@ -40,6 +40,14 @@ app.post('/customer', (req, res) => {
   })
 });
 
+app.get('/customers', (req, res) => {
+  CustomerModel.find().then((err, customers) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(customers);
+  })
+})
 
 
 app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
