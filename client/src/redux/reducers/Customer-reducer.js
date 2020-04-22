@@ -1,3 +1,5 @@
+import {CustomersApi} from '../../api/CustomerApi'
+
 export const SET_CUSTOMERS = 'LegalSystem/Customer-reducer/SET_CUSTOMERS'
 
 let initialState = {
