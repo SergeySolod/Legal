@@ -1,11 +1,27 @@
-import React from 'react';
+import React from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import {compose} from 'redux'
 
-function App() {
+const App = () => {
   return (
     <div>
-    <h1>Hello!</h1>
+      <Switch>
+        <Route path="/" exact render={() => <Home />} />
+      </Switch>
     </div>
   );
-}
+};
 
-export default App;
+let mapStateToProps = state => {
+  return {
+
+  };
+};
+
+export default compose(
+  connect(mapStateToProps, {
+
+  }),
+  withRouter
+)(App);
