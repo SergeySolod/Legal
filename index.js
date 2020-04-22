@@ -26,13 +26,22 @@ async function start() {
 
 start()
 
-app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
+app.post('/customer', (req, res) => {
 
-const customer = new CustomerModel({
-  name: 'Юлия Смирнова',
-  description: 'Потеряла работу из-за коронавируса',
+  const data = req.body;
+
+  const customer = new CustomerModel({
+    name: data.name,
+    description: data.description,
+  });
+
+  customer.save().then(() => {
+    res.send({ status: 'ok' })
+  })
 });
 
-customer.save().then(() => {
-  console.log('OK!')
-})
+
+
+app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
+
+
