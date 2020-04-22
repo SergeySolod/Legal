@@ -6,12 +6,12 @@ let initialState = {
   customers: []
 }
 
-const CustomerReducer = (state = initialState, action) => {
+const CustomersReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CUSTOMERS:
      return {
        ...state,
-       customers: action.customers
+       customers: [action.customers]
      }
     default:
       return state
@@ -25,7 +25,7 @@ const setCustomers = customers => ({
 
 export const setCustomersThunk = () => async (dispatch, getState) => {
   let data = await CustomersApi.getCustomers();
-  console.log(data)
+  dispatch(setCustomers(data));
 };
 
-export default CustomerReducer
+export default CustomersReducer
