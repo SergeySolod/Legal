@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {compose} from 'redux'
+import Home from './pages/Home'
+import {setCustomersThunk} from './redux/reducers/Customer-reducer'
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+  props.setCustomersThunk()
+  }, []);
   return (
     <div>
       <Switch>
@@ -21,7 +26,7 @@ let mapStateToProps = state => {
 
 export default compose(
   connect(mapStateToProps, {
-
+    setCustomersThunk
   }),
   withRouter
 )(App);
