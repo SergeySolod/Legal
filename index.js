@@ -61,6 +61,15 @@ app.delete('/customers/:id', (req, res) => {
   })
 })
 
+app.put('/customers/:id', (req, res) => {
+  CustomerModel.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
+    if (err) {
+      res.send(err)
+    }
+    res.json({ status: 'updated' })
+  })
+})
+
 app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
 
 
