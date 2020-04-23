@@ -11,7 +11,7 @@ const CustomersReducer = (state = initialState, action) => {
     case SET_CUSTOMERS:
      return {
        ...state,
-       customers: [action.customers]
+       customers: [...action.customers]
      }
     default:
       return state
