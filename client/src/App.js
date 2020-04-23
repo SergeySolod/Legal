@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import {compose} from 'redux'
 import Home from './pages/Home/Home'
 import {setCustomersThunk} from './redux/reducers/Customer-reducer'
+import Customers from './pages/Customers/Customers'
+import Navbar from './components/Navbar'
 
 const App = (props) => {
   useEffect(() => {
@@ -11,14 +13,16 @@ const App = (props) => {
   }, []);
   return (
     <div>
+      <Navbar/>
       <Switch>
         <Route path="/" exact render={() => <Home />} />
+        <Route path="/customers" exact render={() => <Customers />} />
       </Switch>
     </div>
   );
 };
 
-let mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
 
   };
