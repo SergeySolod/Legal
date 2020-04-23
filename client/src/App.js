@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {compose} from 'redux'
 import Home from './pages/Home/Home'
 import {setCustomersThunk} from './redux/reducers/Customer-reducer'
-import Customers from './pages/Customers/Customers'
+import Questions from './pages/Questions/Questions'
 import Navbar from './components/Navbar'
 
 const App = (props) => {
@@ -16,7 +16,7 @@ const App = (props) => {
       <Navbar/>
       <Switch>
         <Route path="/" exact render={() => <Home />} />
-        <Route path="/customers" exact render={() => <Customers />} />
+        <Route path="/questions" exact render={() => <Questions />} />
       </Switch>
     </div>
   );
