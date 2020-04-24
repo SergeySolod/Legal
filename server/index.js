@@ -7,6 +7,8 @@ const CustomerModel = require('./models/Customer')
 
 const app = express();
 
+app.use('/api/auth', require('./routes/auth.routes'))
+
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -27,6 +29,7 @@ async function start() {
       useUnifiedTopology: true,
       useCreateIndex: true
     })
+      app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
   } catch (e) {
     process.exit(1)
   }
@@ -78,6 +81,5 @@ app.put('/customers/:id', (req, res) => {
   })
 })
 
-app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
 
 
