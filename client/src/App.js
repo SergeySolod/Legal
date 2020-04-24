@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import {Route, Switch, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 import {compose} from 'redux'
 import {setCustomersThunk} from './redux/reducers/Customer-reducer'
 import Navbar from './components/Navbar'
@@ -9,26 +9,26 @@ import {useRoutes} from "./routes";
 
 const App = (props) => {
     const routes = useRoutes(false)
-  useEffect(() => {
-  props.setCustomersThunk()
-  }, []);
-  return (
-    <div>
-      <Navbar/>
-        {routes}
-    </div>
-  );
+    useEffect(() => {
+        props.setCustomersThunk()
+    }, []);
+    return (
+        <div>
+            <Navbar/>
+            <div className='container'>
+                {routes}
+            </div>
+        </div>
+    );
 };
 
 const mapStateToProps = state => {
-  return {
-
-  };
+    return {};
 };
 
 export default compose(
-  connect(mapStateToProps, {
-    setCustomersThunk
-  }),
-  withRouter
+    connect(mapStateToProps, {
+        setCustomersThunk
+    }),
+    withRouter
 )(App);

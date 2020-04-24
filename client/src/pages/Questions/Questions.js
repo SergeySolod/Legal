@@ -5,7 +5,6 @@ import {compose} from 'redux'
 const Questions = (props) => {
   console.log(props.customers)
   return (
-    <div className="container">
       <div className="row">
         <div className="col s4 ">
           <div className="collection">
@@ -32,7 +31,6 @@ const Questions = (props) => {
           ))}
         </div>
       </div>
-    </div>
   )
 }
 
