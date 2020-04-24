@@ -9,6 +9,8 @@ const Navbar = () => {
         <ul id="nav-mobile" className="left hide-on-med-and-down">
           <li><NavLink to="/" exact>Главная</NavLink></li>
           <li><NavLink to="/questions" exact>Вопросы</NavLink></li>
+          <li><NavLink to="/ask" exact>Задать вопрос</NavLink></li>
+          <li><NavLink to="/auth" exact>Авторизироваться</NavLink></li>
         </ul>
       </div>
     </nav>

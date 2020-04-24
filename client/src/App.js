@@ -5,18 +5,17 @@ import {compose} from 'redux'
 import {setCustomersThunk} from './redux/reducers/Customer-reducer'
 import Navbar from './components/Navbar'
 import 'materialize-css'
+import {useRoutes} from "./routes";
 
 const App = (props) => {
+    const routes = useRoutes(false)
   useEffect(() => {
   props.setCustomersThunk()
   }, []);
   return (
     <div>
       <Navbar/>
-      <Switch>
-        <Route path="/" exact render={() => <Home />} />
-        <Route path="/questions" exact render={() => <Questions />} />
-      </Switch>
+        {routes}
     </div>
   );
 };

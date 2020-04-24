@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Auth = props => {
+const NoAuth = props => {
     return (
         <div className="container">
             <div className="row">
                 <div className="col s12">
-                    <p className="flow-text">Авторизация</p>
+                    <p className="flow-text">Пожалуйста, авторизируйтесь</p>
                 </div>
             </div>
         </div>
 )
 }
 
-export default Auth
+export default NoAuth
