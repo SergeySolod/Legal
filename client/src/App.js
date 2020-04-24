@@ -6,6 +6,7 @@ import Home from './pages/Home/Home'
 import {setCustomersThunk} from './redux/reducers/Customer-reducer'
 import Questions from './pages/Questions/Questions'
 import Navbar from './components/Navbar'
+import 'materialize-css'
 
 const App = (props) => {
   useEffect(() => {
