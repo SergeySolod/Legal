@@ -1,5 +1,9 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
 .button-auth-log {
-    margin-right: 10pxw;
+    margin-right: 10px;
+}
+
+.card-auth {
+    margin-top: 3rem;
 }
