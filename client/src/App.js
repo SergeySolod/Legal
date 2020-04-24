@@ -2,9 +2,7 @@ import React, {useEffect} from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {compose} from 'redux'
-import Home from './pages/Home/Home'
 import {setCustomersThunk} from './redux/reducers/Customer-reducer'
-import Questions from './pages/Questions/Questions'
 import Navbar from './components/Navbar'
 import 'materialize-css'
 
