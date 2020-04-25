@@ -12,10 +12,10 @@ const Navbar = (props) => {
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><a onClick={() => {
                         props.logout()
-                    }} href="javascript:void(0)">Выйти</a></li>
-                    <li><NavLink to="/" exact>Главная</NavLink></li>
-                    <li><NavLink to="/questions" exact>Вопросы</NavLink></li>
-                    <li><NavLink to="/ask" exact>Задать вопрос</NavLink></li>
+                    }} href="javascript:void(0)">Logout</a></li>
+                    <li><NavLink to="/" exact>Home</NavLink></li>
+                    <li><NavLink to="/questions" exact>Questions</NavLink></li>
+                    <li><NavLink to="/ask" exact>Ask a question</NavLink></li>
                 </ul>
             </div>
         </nav>

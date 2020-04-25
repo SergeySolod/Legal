@@ -34,6 +34,9 @@ const Auth = (props) => {
             const data = await request("/api/auth/login", "POST", {...form});
             message(data.message)
             props.login(data.token, data.userId)
+            localStorage.setItem('userData', JSON.stringify({
+                token: data.token, userId: data.userId
+            }))
         } catch (e) {
         }
     };
@@ -45,11 +48,11 @@ const Auth = (props) => {
                     <div className="col s6 offset-s3">
                         <div className="card #43a047 green darken-1 card-auth">
                             <div className="card-content white-text">
-                                <span className="card-title">Авторизация</span>
+                                <span className="card-title">Authorization</span>
                                 <div>
                                     <div className="input-field">
                                         <input
-                                            placeholder="Введите email"
+                                            placeholder="Enter email"
                                             id="email"
                                             type="text"
                                             name="email"
@@ -61,7 +64,7 @@ const Auth = (props) => {
                                     </div>
                                     <div className="input-field">
                                         <input
-                                            placeholder="Введите пароль"
+                                            placeholder="Enter password"
                                             id="password"
                                             type="password"
                                             name="password"
@@ -69,7 +72,7 @@ const Auth = (props) => {
                                             value={form.password}
                                             onChange={changeHandler}
                                         />
-                                        <label htmlFor="email">Пароль</label>
+                                        <label htmlFor="email">Password</label>
                                     </div>
                                 </div>
                             </div>
@@ -80,14 +83,14 @@ const Auth = (props) => {
                                     disabled={loading}
                                     onClick={loginHandler}
                                 >
-                                    Войти
+                                    Login
                                 </button>
                                 <button
                                     className="btn grey lighten-1 black-text"
                                     onClick={registerHandler}
                                     disabled={loading}
                                 >
-                                    Регистрация
+                                    Registration
                                 </button>
                             </div>
                         </div>
