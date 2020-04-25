@@ -3,7 +3,7 @@ import { useHttp } from "../../hooks/http.hook";
 import {useMessage} from "../../hooks/message.hook";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {setAuth} from "../../redux/reducers/Auth-reducer";
+import {login} from "../../redux/reducers/Auth-reducer";
 
 const Auth = (props) => {
     const message = useMessage()
@@ -35,7 +35,7 @@ const Auth = (props) => {
             message(data.message)
             console.log('token', data.token)
             console.log('userId', data.userId)
-            props.setAuth(data.token, data.userId)
+            props.login(data.token, data.userId)
         } catch (e) {
         }
     };
@@ -101,5 +101,5 @@ const mapStateToProps = state => {
 };
 
 export default compose(
-    connect(mapStateToProps, {setAuth})
+    connect(mapStateToProps, {login})
 )(Auth);

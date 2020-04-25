@@ -1,4 +1,5 @@
-export const SET_AUTH = 'LegalQuestions/Auth-reducer/SET_AUTH'
+export const LOGIN = 'LegalQuestions/Auth-reducer/LOGIN'
+export const LOGOUT = 'LegalQuestions/Auth-reducer/LOGOUT'
 
 let initialState = {
     token: null,
@@ -11,17 +12,23 @@ let initialState = {
 
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
-      case SET_AUTH:
+      case LOGIN:
      return {
        ...state,
          token: action.token,
          userId: action.userId
      }
+      case LOGOUT:
+          return {
+              ...state,
+              token: null,
+              userId: null
+          }
     default:
       return state
   }
 }
 
-export const setAuth = (token, userId) => ({type: SET_AUTH, token, userId})
+export const login = (token, userId) => ({type: LOGIN, token, userId})
 
 export default AuthReducer
