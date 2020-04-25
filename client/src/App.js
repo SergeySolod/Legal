@@ -3,12 +3,16 @@ import {Route, Switch, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {compose} from 'redux'
 import Navbar from './components/Navbar'
-import 'materialize-css'
 import {useRoutes} from "./routes";
+import {useAuth} from "./hooks/auth.hook";
+import 'materialize-css'
 
 const App = (props) => {
+    const {token, login, logout, userId} = useAuth()
+    useEffect(() => {
+       console.log(token, login, logout, userId)
+    }, [])
     const routes = useRoutes(false)
-
     return (
         <div>
             <Navbar/>
@@ -24,8 +28,6 @@ const mapStateToProps = state => {
 };
 
 export default compose(
-    connect(mapStateToProps, {
-
-    }),
+    connect(mapStateToProps, {}),
     withRouter
 )(App);
