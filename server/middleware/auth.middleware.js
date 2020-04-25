@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const config = require('config')
 
 //перехватываем определённые данные и делем логику, описанную ниже
 module.exports = (req, res, next) => {
@@ -15,8 +16,11 @@ module.exports = (req, res, next) => {
         }
 
         const decoded = jwt.verify(token, config.get('jwtSecret'))
+        req.user = decoded
+        next()
 
     } catch (e) {
-
+        //попали сюда если произошла ошибка при верификации токена
+        return res.status(401).json({ message: 'Нет авторизации' })
     }
 }
