@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import "./index.css";
 
 ReactDOM.render(
-  <BrowserRouter basename={process.env.REACT_APP_BASE_NAME_URL}>
+  <BrowserRouter>
     <Provider store={store}>
       <App />
     </Provider>

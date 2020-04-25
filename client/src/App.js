@@ -9,10 +9,12 @@ import 'materialize-css'
 
 const App = (props) => {
     const {token, login, logout, userId} = useAuth()
+    const isAuthenticated  = !!token
+    const routes = useRoutes(isAuthenticated)
     useEffect(() => {
-       console.log(token, login, logout, userId)
+       console.log(token, login, logout, userId, isAuthenticated)
     }, [])
-    const routes = useRoutes(false)
+
     return (
         <div>
             <Navbar/>
