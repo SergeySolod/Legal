@@ -12,6 +12,7 @@ const Navbar = (props) => {
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><a onClick={() => {
                         props.logout()
+                        localStorage.removeItem('userData')
                     }} href="javascript:void(0)">Logout</a></li>
                     <li><NavLink to="/" exact>Home</NavLink></li>
                     <li><NavLink to="/questions" exact>Questions</NavLink></li>
