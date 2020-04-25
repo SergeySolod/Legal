@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const CustomersApi = {
-  getCustomers() {
+export const QuestionsApi = {
+  getQuestions() {
     return axios({
-      url: `http://localhost:5000/customers`,
+      url: `http://localhost:5000/questions`,
       method: 'get',
       withCredentials: true
     })

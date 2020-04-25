@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
+import {setQuestionsThunk} from "../../redux/reducers/Questions-reducer";
 
 const Questions = (props) => {
+    useEffect(() => {
+        props.setQuestionsThunk()
+    }, []);
   return (
       <div className="row">
         <div className="col s4 ">
@@ -41,5 +45,5 @@ const mapStateToProps = state => {
 
 
 export default compose(
-  connect(mapStateToProps, {})
+  connect(mapStateToProps, {setQuestionsThunk})
 )(Questions)
