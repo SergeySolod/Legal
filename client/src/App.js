@@ -5,6 +5,7 @@ import {compose} from 'redux'
 import {useRoutes} from "./routes";
 import 'materialize-css'
 import {login} from "./redux/reducers/Auth-reducer";
+import Navbar from "./components/Navbar";
 
 const App = (props) => {
     useEffect(() => {
@@ -16,7 +17,10 @@ const App = (props) => {
     const routes = useRoutes(props.isAuthenticated)
     return (
         <>
-            {routes}
+            {props.isAuthenticated && <Navbar/>}
+            <div className='container'>
+                {routes}
+            </div>
         </>
     );
 };

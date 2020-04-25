@@ -2,44 +2,38 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {setQuestionsThunk} from "../../redux/reducers/Questions-reducer";
-import Navbar from "../../components/Navbar";
 
 const Questions = (props) => {
     useEffect(() => {
         props.setQuestionsThunk()
     }, []);
     return (
-        <>
-            <Navbar/>
-            <div className="container">
-                <div className="row">
-                    <div className="col s4 ">
-                        <div className="collection">
-                            <a href="javascript:void(0)" className="collection-item active">Все отрасли</a>
-                            <a href="javascript:void(0)" className="collection-item">Гражданское право</a>
-                            <a href="javascript:void(0)" className="collection-item">Уголовное право</a>
-                            <a href="javascript:void(0)" className="collection-item">Административное право</a>
-                            <a href="javascript:void(0)" className="collection-item">Налоговое право</a>
-                        </div>
-                    </div>
-
-
-                    <div className="col s8">
-
-                        <div className="card #43a047 green darken-1">
-                            <div className="card-content white-text">
-                                <span className="card-title">Наименование вопроса</span>
-                                <p>Текст вопроса</p>
-                            </div>
-                            <div className="card-action">
-                                <a href="javascript:void(0)">Посмотреть ответ</a>
-                            </div>
-                        </div>
-
-                    </div>
+        <div className="row">
+            <div className="col s4 ">
+                <div className="collection">
+                    <a href="javascript:void(0)" className="collection-item active">Все отрасли</a>
+                    <a href="javascript:void(0)" className="collection-item">Гражданское право</a>
+                    <a href="javascript:void(0)" className="collection-item">Уголовное право</a>
+                    <a href="javascript:void(0)" className="collection-item">Административное право</a>
+                    <a href="javascript:void(0)" className="collection-item">Налоговое право</a>
                 </div>
             </div>
-        </>
+
+
+            <div className="col s8">
+
+                <div className="card #43a047 green darken-1">
+                    <div className="card-content white-text">
+                        <span className="card-title">Наименование вопроса</span>
+                        <p>Текст вопроса</p>
+                    </div>
+                    <div className="card-action">
+                        <a href="javascript:void(0)">Посмотреть ответ</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     )
 }
 

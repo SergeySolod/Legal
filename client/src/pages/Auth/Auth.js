@@ -42,62 +42,58 @@ const Auth = (props) => {
     };
 
     return (
-        <>
-            <div className="container">
-                <div className="row">
-                    <div className="col s6 offset-s3">
-                        <div className="card #43a047 green darken-1 card-auth">
-                            <div className="card-content white-text">
-                                <span className="card-title">Authorization</span>
-                                <div>
-                                    <div className="input-field">
-                                        <input
-                                            placeholder="Enter email"
-                                            id="email"
-                                            type="text"
-                                            name="email"
-                                            className="yellow-input"
-                                            value={form.email}
-                                            onChange={changeHandler}
-                                        />
-                                        <label htmlFor="email">Email</label>
-                                    </div>
-                                    <div className="input-field">
-                                        <input
-                                            placeholder="Enter password"
-                                            id="password"
-                                            type="password"
-                                            name="password"
-                                            className="yellow-input"
-                                            value={form.password}
-                                            onChange={changeHandler}
-                                        />
-                                        <label htmlFor="email">Password</label>
-                                    </div>
-                                </div>
+        <div className="row">
+            <div className="col s6 offset-s3">
+                <div className="card #43a047 green darken-1 card-auth">
+                    <div className="card-content white-text">
+                        <span className="card-title">Authorization</span>
+                        <div>
+                            <div className="input-field">
+                                <input
+                                    placeholder="Enter email"
+                                    id="email"
+                                    type="text"
+                                    name="email"
+                                    className="yellow-input"
+                                    value={form.email}
+                                    onChange={changeHandler}
+                                />
+                                <label htmlFor="email">Email</label>
                             </div>
-                            <div className="card-action">
-                                <button
-                                    className="btn yellow darken-4"
-                                    style={{marginRight: 10}}
-                                    disabled={loading}
-                                    onClick={loginHandler}
-                                >
-                                    Login
-                                </button>
-                                <button
-                                    className="btn grey lighten-1 black-text"
-                                    onClick={registerHandler}
-                                    disabled={loading}
-                                >
-                                    Registration
-                                </button>
+                            <div className="input-field">
+                                <input
+                                    placeholder="Enter password"
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    className="yellow-input"
+                                    value={form.password}
+                                    onChange={changeHandler}
+                                />
+                                <label htmlFor="email">Password</label>
                             </div>
                         </div>
                     </div>
+                    <div className="card-action">
+                        <button
+                            className="btn yellow darken-4"
+                            style={{marginRight: 10}}
+                            disabled={loading}
+                            onClick={loginHandler}
+                        >
+                            Login
+                        </button>
+                        <button
+                            className="btn grey lighten-1 black-text"
+                            onClick={registerHandler}
+                            disabled={loading}
+                        >
+                            Registration
+                        </button>
+                    </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
