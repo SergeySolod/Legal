@@ -33,8 +33,6 @@ const Auth = (props) => {
         try {
             const data = await request("/api/auth/login", "POST", { ...form });
             message(data.message)
-            console.log('token', data.token)
-            console.log('userId', data.userId)
             props.login(data.token, data.userId)
         } catch (e) {
         }
