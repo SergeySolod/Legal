@@ -1,4 +1,5 @@
 {
   "port": 5000,
+  "jwtSecret": "Sergey",
   "mongoUri": "mongodb+srv://Sergey:pvfaty3z@cluster0-noqua.mongodb.net/LegalQuestions?retryWrites=true&w=majority"
 }

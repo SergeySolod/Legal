@@ -21,12 +21,20 @@ const Auth = () => {
   const registerHandler = async () => {
     try {
       const data = await request("/api/auth/register", "POST", { ...form });
-
+      message(data.message)
     } catch (e) {
     }
   };
 
-  return (
+    const loginHandler = async () => {
+        try {
+            const data = await request("/api/auth/login", "POST", { ...form });
+            message(data.message)
+        } catch (e) {
+        }
+    };
+
+    return (
     <div className="row">
       <div className="col s6 offset-s3">
         <div className="card #43a047 green darken-1 card-auth">
@@ -66,6 +74,7 @@ const Auth = () => {
               className="btn yellow darken-4"
               style={{ marginRight: 10 }}
               disabled={loading}
+              onClick={loginHandler}
             >
               Войти
             </button>

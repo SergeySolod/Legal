@@ -56,7 +56,7 @@ router.post(
             if (!errors.isEmpty()) {
                 return res.status(400).json({
                     errors: errors.array(),
-                    message: 'Некорректные данные при входе с систему'
+                    message: 'Некорректные данные при входе в систему'
                 })
             }
             //получаем данные и ищем пользователя

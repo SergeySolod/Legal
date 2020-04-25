@@ -12,7 +12,7 @@ export const useHttp = () => {
                 body = JSON.stringify(body)
                 //если его нет то передаём null и он не будет учитываться
                 //также надо указывать, что мы передаём json, делаем это с помощью headers
-                headers['Content-Tpye'] = 'application/json'
+                headers['Content-Type'] = 'application/json'
 
             }
             const response = await fetch(url, {method, body, headers});
