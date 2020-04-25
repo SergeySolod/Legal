@@ -10,7 +10,7 @@ router.post('/generate', async (req, res) => {
     }
 })
 
-router.get('/', async (req, res) => {
+router.get('/my', async (req, res) => {
     try {
         //ждём пока модель Question найдёт все вопросы которые относятся к текущему пользователю
         const questions = await Question.find({ owner: null }) // ???
@@ -20,10 +20,10 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/my/:id', async (req, res) => {
     try {
-        const questions = await Question.findById({ owner: null }) // ???
-        res.json(questions)
+        const question = await Question.findById(req.params.id) // ???
+        res.json(question)
     } catch (e) {
         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
     }
