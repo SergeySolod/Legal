@@ -8,9 +8,10 @@ const CustomerModel = require('./models/Question')
 const app = express();
 
 //преобразование приходящих данных в json формат встроенным в express методом
-app.use(express.json({ extended: true }))
+app.use(express.json({extended: true}))
 
 app.use('/api/auth', require('./routes/auth.routes'))
+app.use('/api/questions', require('./routes/questions.routes'))
 
 // app.use(function (req, res, next) {
 //   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -23,16 +24,16 @@ app.use('/api/auth', require('./routes/auth.routes'))
 const PORT = config.get('port') || 5000
 
 async function start() {
-  try {
-    await mongoose.connect(config.get('mongoUri'), {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true
-    })
-      app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
-  } catch (e) {
-    process.exit(1)
-  }
+    try {
+        await mongoose.connect(config.get('mongoUri'), {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+        })
+        app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
+    } catch (e) {
+        process.exit(1)
+    }
 }
 
 start()
