@@ -8,7 +8,7 @@ const Navbar = (props) => {
     return (
         <nav>
             <div className="nav-wrapper #43a047 green darken-1">
-                <a href="javascript:void(0)" className="brand-logo right">LegalQuestions</a>
+                <span className="brand-logo right">LegalQuestions</span>
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><a onClick={() => {
                         props.logout()
