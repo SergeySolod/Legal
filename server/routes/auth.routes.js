@@ -17,7 +17,6 @@ router.post(
     ],
     async (req, res) => {
     try {
-        console.log('Body:', req.body)
         // валидация через экспресс входящих полей
         const errors = validationResult(req)
         if (!errors.isEmpty()) {

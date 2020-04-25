@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {compose} from 'redux'
 
 const Questions = (props) => {
-  console.log(props.customers)
   return (
       <div className="row">
         <div className="col s4 ">

@@ -3,16 +3,16 @@ import { useHttp } from "../../hooks/http.hook";
 import {useMessage} from "../../hooks/message.hook";
 
 const Auth = () => {
-  const message = useMessage()
-  const { loading, request, error, clearError } = useHttp();
-  const [form, setForm] = useState({
-    email: "", password: ""
-  });
+    const message = useMessage()
+    const {loading, request, error, clearError} = useHttp()
+    const [form, setForm] = useState({
+        email: '', password: ''
+    })
 
-  useEffect(() => {
-      message(error)
-      clearError()
-  }, [error, message, clearError])
+    useEffect(() => {
+        message(error)
+        clearError()
+    }, [error, message, clearError])
 
   const changeHandler = event => {
     setForm({ ...form, [event.target.name]: event.target.value });

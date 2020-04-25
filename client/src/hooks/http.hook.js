@@ -19,22 +19,20 @@ export const useHttp = () => {
             //приводим после дожидания к форму json
             const data = await response.json();
             if (!response.ok) {
-                //выбрасываем ошибку если она есть
-                throw new Error(data.message || "Что-то пошло не так");
+                throw new Error(data.message || 'Что-то пошло не так')
             }
-            setLoading(false);
 
-            return data;
+            setLoading(false)
 
+            return data
         } catch (e) {
-            setLoading(false);
-            //ошибка здесь появляется из инстанса throw
-            setError(e.message);
-            throw e;
+            setLoading(false)
+            setError(e.message)
+            throw e
         }
-    }, []);
+    }, [])
 
-    const clearError = () => useCallback(() => setError(null), [])
+    const clearError = useCallback(() => setError(null), [])
 
-    return {loading, request, error, clearError};
-};
+    return { loading, request, error, clearError }
+}
