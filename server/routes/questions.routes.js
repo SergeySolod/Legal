@@ -51,6 +51,7 @@ router.get('/', async (req, res) => {
 
 router.post('/generate', async (req, res) => {
     try {
+        console.log(req.body)
         const data = req.body;
         const question = new Question({
             title: data.title,

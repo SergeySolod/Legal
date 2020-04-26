@@ -28,4 +28,8 @@ export const setQuestionsThunk = () => async (dispatch, getState) => {
   dispatch(setQuestions(data));
 };
 
+export const postQuestionsThunk = (formData) => async (dispatch, getState) => {
+    let data = await QuestionsApi.postQuestions(formData);
+};
+
 export default QuestionsReducer

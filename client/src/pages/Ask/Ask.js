@@ -2,6 +2,9 @@ import React from 'react'
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../../components/FormsControl";
 import {required} from "../../components/Validators";
+import {connect} from "react-redux";
+import {compose} from "redux";
+import {postQuestionsThunk} from "../../redux/reducers/Questions-reducer";
 
 const AskForm = (props) => {
     return (
@@ -44,7 +47,7 @@ const AskReduxForm = reduxForm({form: 'ask'})(AskForm)
 
 const Ask = (props) => {
     const onSubmit = (formData) => {
-        console.log(formData)
+        props.postQuestionsThunk(formData)
     }
     return (
         <>
@@ -54,4 +57,11 @@ const Ask = (props) => {
 }
 
 
-export default Ask
+
+const mapStateToProps = state => {
+    return {};
+};
+
+export default compose(
+    connect(mapStateToProps, {postQuestionsThunk})
+)(Ask);
