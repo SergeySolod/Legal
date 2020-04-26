@@ -1,6 +1,6 @@
 const {Schema, model, Types} = require('mongoose');
 
-const QuestionSchema = new Schema ({
+const PostSchema = new Schema ({
     title: {type: String, required: true},
     text: {type: String, required: true},
     date: {type: Date, default: Date.now},
@@ -9,4 +9,4 @@ const QuestionSchema = new Schema ({
   }
 )
 
-module.exports = model('Question', QuestionSchema)
+module.exports = model('Post', PostSchema)

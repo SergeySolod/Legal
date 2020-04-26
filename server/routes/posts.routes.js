@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const Question = require('../models/Question')
+const Post = require('../models/Post')
 const router = Router()
 const config = require('config')
 const auth = require('../middleware/auth.middleware')
@@ -38,11 +38,11 @@ const auth = require('../middleware/auth.middleware')
 
 router.get('/', async (req, res) => {
     try {
-        Question.find().then((err, questions) => {
+        Post.find().then((err, posts) => {
             if (err) {
                 res.send(err);
             }
-            res.json(questions);
+            res.json(posts);
         })
     } catch (e) {
         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
@@ -51,11 +51,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        Question.findById(req.params.id).then((err, question) => {
+        Post.findById(req.params.id).then((err, post) => {
             if (err) {
                 res.send(err);
             }
-            res.json(question);
+            res.json(post);
         })
     } catch (e) {
         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
@@ -65,12 +65,12 @@ router.get('/:id', async (req, res) => {
 router.post('/generate', async (req, res) => {
     try {
         const data = req.body;
-        const question = new Question({
+        const post = new Post({
             title: data.title,
             text: data.text,
         });
-        question.save().then(() => {
-            res.send({ status: 'The question was saved' })
+        post.save().then(() => {
+            res.send({ status: 'The post was saved' })
         })
 
     } catch (e) {
@@ -80,11 +80,11 @@ router.post('/generate', async (req, res) => {
 
 router.put('/change/:id', async (req, res) => {
     try {
-        Question.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
+        Post.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
     if (err) {
       res.send(err)
     }
-    res.json({ status: 'The question has been changed' })
+    res.json({ status: 'The post has been changed' })
   })
 
     } catch (e) {

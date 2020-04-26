@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json({extended: true}))
 
 app.use('/api/auth', require('./routes/auth.routes'))
-app.use('/api/questions', require('./routes/questions.routes'))
+app.use('/api/posts', require('./routes/posts.routes'))
 
 // app.use(function (req, res, next) {
 //   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
