@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {setQuestionsThunk} from "../../redux/reducers/Questions-reducer";
+import {NavLink} from 'react-router-dom'
 
 const Questions = (props) => {
     useEffect(() => {
@@ -18,7 +19,7 @@ const Questions = (props) => {
                             <p>{question.text}</p>
                         </div>
                         <div className="card-action">
-                            <a href="javascript:void(0)">Посмотреть ответ</a>
+                            <NavLink to={`/questions/${question._id}`}>Посмотреть ответ</NavLink>
                         </div>
 
                     </div>)

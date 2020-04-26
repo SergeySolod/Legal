@@ -10,6 +10,15 @@ export const QuestionsApi = {
                 return response.data;
             })
     },
+    getQuestion(id) {
+        return axios({
+            url: `/api/questions/${id}`,
+            method: 'get'
+        })
+            .then(response => {
+                return response.data;
+            })
+    },
     postQuestions(formData) {
         formData = JSON.stringify(formData)
         return axios({

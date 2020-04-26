@@ -14,9 +14,9 @@ const Navbar = (props) => {
                         props.logout()
                         localStorage.removeItem('userData')
                     }} href="javascript:void(0)">Logout</a></li>
-                    <li><NavLink to="/" exact>Home</NavLink></li>
-                    <li><NavLink to="/questions" exact>Questions</NavLink></li>
-                    <li><NavLink to="/ask" exact>Ask a question</NavLink></li>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/questions">Questions</NavLink></li>
+                    <li><NavLink to="/ask">Ask a question</NavLink></li>
                 </ul>
             </div>
         </nav>
