@@ -2,11 +2,12 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {setPostThunk} from "../../redux/reducers/Posts-reducer";
-import {withRouter} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 const Post = (props) => {
+    const postId = useParams().id
     useEffect(() => {
-        props.setPostThunk(props.match.params.id)
+        props.setPostThunk(postId)
     }, []);
     return (
         <div className="row">
@@ -15,6 +16,7 @@ const Post = (props) => {
                     <div className="card-content white-text">
                         <span className="card-title">{props.post.title}</span>
                         <p>{props.post.text}</p>
+                        <p>{new Date(props.post.date).toLocaleDateString()}</p>
                     </div>
                 </div>
             </div>
@@ -30,6 +32,5 @@ const mapStateToProps = state => {
 
 
 export default compose(
-    connect(mapStateToProps, {setPostThunk}),
-    withRouter
+    connect(mapStateToProps, {setPostThunk})
 )(Post)

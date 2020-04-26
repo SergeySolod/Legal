@@ -17,9 +17,11 @@ const Posts = (props) => {
                         <div className="card-content white-text">
                             <span className="card-title">{post.title}</span>
                             <p>{post.text}</p>
+
                         </div>
                         <div className="card-action">
                             <NavLink to={`/posts/${post._id}`}>View answer</NavLink>
+                            <p>{new Date(post.date).toLocaleDateString()}</p>
                         </div>
                     </div>)
                 }

@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {postPostThunk} from "../../redux/reducers/Posts-reducer";
 
+
 const AddForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
