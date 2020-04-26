@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const bodyParser = require('body-parser');
 const config = require('config')
-const CustomerModel = require('./models/Question')
-
 
 const app = express();
 

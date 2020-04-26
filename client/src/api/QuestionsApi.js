@@ -3,7 +3,7 @@ import axios from "axios";
 export const QuestionsApi = {
     getQuestions() {
         return axios({
-            url: `http://localhost:5000/questions`,
+            url: `/api/questions`,
             method: 'get'
         })
             .then(response => {
