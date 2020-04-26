@@ -10,14 +10,12 @@ export const QuestionsApi = {
                 return response.data;
             })
     },
-    postQuestions(body = null) {
-        if (body) {
-            body = JSON.stringify(body)
-        }
+    postQuestions(formData) {
+        formData = JSON.stringify(formData)
         return axios({
             url: `/api/questions/generate`,
             method: 'post',
-            body: body,
+            data: formData,
             headers: {
                 'Content-Type': 'application/json'
             }
