@@ -36,7 +36,7 @@ const auth = require('../middleware/auth.middleware')
 //     }
 // })
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
         Post.find().then((err, posts) => {
             if (err) {
@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
     try {
         Post.findById(req.params.id).then((err, post) => {
             if (err) {
@@ -62,15 +62,16 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.post('/generate', async (req, res) => {
+router.post('/generate', auth, async (req, res) => {
     try {
         const data = req.body;
         const post = new Post({
             title: data.title,
             text: data.text,
+            owner: req.user.userId
         });
-        post.save().then(() => {
-            res.send({ status: 'The post was saved' })
+        await post.save().then(() => {
+            res.status(201).json({ message: 'The post was saved' })
         })
 
     } catch (e) {
@@ -78,7 +79,7 @@ router.post('/generate', async (req, res) => {
     }
 })
 
-router.put('/change/:id', async (req, res) => {
+router.put('/change/:id', auth, async (req, res) => {
     try {
         Post.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
     if (err) {

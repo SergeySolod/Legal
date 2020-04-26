@@ -19,9 +19,8 @@ const Posts = (props) => {
                             <p>{post.text}</p>
                         </div>
                         <div className="card-action">
-                            <NavLink to={`/posts/${post._id}`}>Посмотреть ответ</NavLink>
+                            <NavLink to={`/posts/${post._id}`}>View answer</NavLink>
                         </div>
-
                     </div>)
                 }
             </div>

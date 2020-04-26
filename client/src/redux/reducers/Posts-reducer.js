@@ -36,17 +36,17 @@ const setPost = post => ({
 });
 
 export const setPostsThunk = () => async (dispatch, getState) => {
-    let data = await PostsApi.getPosts();
+    let data = await PostsApi.getPosts(getState().auth.token);
     dispatch(setPosts(data));
 };
 
 export const setPostThunk = (id) => async (dispatch, getState) => {
-    let data = await PostsApi.getPost(id);
+    let data = await PostsApi.getPost(id, getState().auth.token);
     dispatch(setPost(data));
 };
 
 export const postPostThunk = (formData) => async (dispatch, getState) => {
-    let data = await PostsApi.postPosts(formData);
+    let data = await PostsApi.postPosts(formData, getState().auth.token);
 };
 
 export default PostsReducer
