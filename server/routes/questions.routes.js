@@ -51,11 +51,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        Question.find().then((err, questions) => {
+        Question.findById(req.params.id).then((err, question) => {
             if (err) {
                 res.send(err);
             }
-            res.json(questions);
+            res.json(question);
         })
     } catch (e) {
         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
