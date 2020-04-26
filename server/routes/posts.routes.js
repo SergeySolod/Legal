@@ -19,8 +19,8 @@ const auth = require('../middleware/auth.middleware')
 
 // router.get('/my', async (req, res) => {
 //     try {
-//         //ждём пока модель Question найдёт все вопросы которые относятся к текущему пользователю
-//         const questions = await Question.find({owner: req.user.userId}) // ???
+//         //ждём пока модель Post найдёт все вопросы которые относятся к текущему пользователю
+//         const questions = await Post.find({owner: req.user.userId}) // ???
 //         res.json(questions)
 //     } catch (e) {
 //         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
@@ -29,7 +29,7 @@ const auth = require('../middleware/auth.middleware')
 //
 // router.get('/my/:id', async (req, res) => {
 //     try {
-//         const question = await Question.findById(req.params.id) // ???
+//         const question = await Post.findById(req.params.id) // ???
 //         res.json(question)
 //     } catch (e) {
 //         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})

@@ -8,15 +8,16 @@ const Navbar = (props) => {
     return (
         <nav>
             <div className="nav-wrapper #43a047 green darken-1">
-                <span className="brand-logo right">LegalQuestions</span>
+                <span className="brand-logo right">MebicalBlog</span>
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><a onClick={() => {
                         props.logout()
                         localStorage.removeItem('userData')
                     }} href="javascript:void(0)">Logout</a></li>
                     <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/questions">Questions</NavLink></li>
-                    <li><NavLink to="/ask">Ask a question</NavLink></li>
+                    <li><NavLink to="/questions">My posts</NavLink></li>
+                    <li><NavLink to="/ask">Add a post</NavLink></li>
+                    <li><NavLink to="/ask">All posts</NavLink></li>
                 </ul>
             </div>
         </nav>

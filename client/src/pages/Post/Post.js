@@ -1,20 +1,20 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
-import {setQuestionThunk} from "../../redux/reducers/Questions-reducer";
+import {setPostThunk} from "../../redux/reducers/Posts-reducer";
 import {withRouter} from "react-router-dom";
 
-const Question = (props) => {
+const Post = (props) => {
     useEffect(() => {
-        props.setQuestionThunk(props.match.params.id)
+        props.setPostThunk(props.match.params.id)
     }, []);
     return (
         <div className="row">
             <div className="col s12">
                 <div className="card #43a047 green darken-1">
                     <div className="card-content white-text">
-                        <span className="card-title">{props.question.title}</span>
-                        <p>{props.question.text}</p>
+                        <span className="card-title">{props.post.title}</span>
+                        <p>{props.post.text}</p>
                     </div>
                 </div>
             </div>
@@ -24,12 +24,12 @@ const Question = (props) => {
 
 const mapStateToProps = state => {
     return {
-        question: state.questions.question
+        posts: state.posts.post
     }
 }
 
 
 export default compose(
-    connect(mapStateToProps, {setQuestionThunk}),
+    connect(mapStateToProps, {setPostThunk}),
     withRouter
-)(Question)
+)(Post)

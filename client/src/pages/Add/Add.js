@@ -4,24 +4,24 @@ import {Input} from "../../components/FormsControl";
 import {required} from "../../components/Validators";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {postQuestionsThunk} from "../../redux/reducers/Questions-reducer";
+import {postPostThunk} from "../../redux/reducers/Posts-reducer";
 
-const AskForm = (props) => {
+const AddForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div className="row">
                 <div className="col s12">
                     <div className="card #43a047 green darken-1">
                         <div className="card-content white-text">
-                            <span className="card-title">Ask a question</span>
+                            <span className="card-title">Add a post</span>
                             <div>
                                 <div className="input-field">
-                                    <Field placeholder={'Enter title'} name={'title'} validate={[required]}
+                                    <Field placeholder={'Title'} name={'title'} validate={[required]}
                                            component={Input}
                                            className="yellow-input"/>
                                 </div>
                                 <div className="input-field">
-                                    <Field placeholder={'Enter text'} name={'text'} validate={[required]}
+                                    <Field placeholder={'Text'} name={'text'} validate={[required]}
                                            component={Input}
                                            className="yellow-input"/>
                                 </div>
@@ -31,9 +31,8 @@ const AskForm = (props) => {
                             <button
                                 className="btn yellow darken-4"
                                 style={{marginRight: 10}}
-
                             >
-                                Send
+                                Add
                             </button>
                         </div>
                     </div>
@@ -43,11 +42,11 @@ const AskForm = (props) => {
     )
 }
 
-const AskReduxForm = reduxForm({form: 'ask'})(AskForm)
+const AddReduxForm = reduxForm({form: 'add'})(AddForm)
 
-const Ask = (props) => {
+const Add = (props) => {
     const onSubmit = (formData) => {
-        props.postQuestionsThunk(formData)
+        props.postPostThunk(formData)
     }
     return (
         <>
@@ -63,5 +62,5 @@ const mapStateToProps = state => {
 };
 
 export default compose(
-    connect(mapStateToProps, {postQuestionsThunk})
-)(Ask);
+    connect(mapStateToProps, {postPostThunk})
+)(Add);

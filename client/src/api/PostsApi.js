@@ -1,28 +1,28 @@
 import axios from "axios";
 
-export const QuestionsApi = {
-    getQuestions() {
+export const PostsApi = {
+    getPosts() {
         return axios({
-            url: `/api/questions`,
+            url: `/api/posts`,
             method: 'get'
         })
             .then(response => {
                 return response.data;
             })
     },
-    getQuestion(id) {
+    getPost(id) {
         return axios({
-            url: `/api/questions/${id}`,
+            url: `/api/posts/${id}`,
             method: 'get'
         })
             .then(response => {
                 return response.data;
             })
     },
-    postQuestions(formData) {
+    postPosts(formData) {
         formData = JSON.stringify(formData)
         return axios({
-            url: `/api/questions/generate`,
+            url: `/api/posts/generate`,
             method: 'post',
             data: formData,
             headers: {
