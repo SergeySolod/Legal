@@ -15,9 +15,8 @@ const Navbar = (props) => {
                         localStorage.removeItem('userData')
                     }} href="javascript:void(0)">Logout</a></li>
                     <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/questions">My posts</NavLink></li>
-                    <li><NavLink to="/ask">Add a post</NavLink></li>
-                    <li><NavLink to="/ask">All posts</NavLink></li>
+                    <li><NavLink to="/posts">Posts</NavLink></li>
+                    <li><NavLink to="/add">Add a post</NavLink></li>
                 </ul>
             </div>
         </nav>

@@ -50,7 +50,7 @@ const Add = (props) => {
     }
     return (
         <>
-            <AskReduxForm onSubmit={onSubmit}/>
+            <AddReduxForm onSubmit={onSubmit}/>
         </>
     )
 }
