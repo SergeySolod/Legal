@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Posts from "./pages/Posts/Posts";
 import Post from "./pages/Post/Post";
+import AllPost from "./pages/AllPosts/AllPosts";
 import Home from "./pages/Home/Home";
 import Add from "./pages/Add/Add";
 import Auth from "./pages/Auth/Auth";
@@ -13,6 +14,7 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/" exact render={() => <Home />} />
         <Route path="/posts" exact render={() => <Posts />} />
         <Route path="/posts/:id" exact render={() => <Post />} />
+        <Route path="/all" exact render={() => <AllPost />} />
         <Route path="/add" exact render={() => <Add />} />
         <Redirect to="/" />
       </Switch>

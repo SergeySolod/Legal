@@ -29,6 +29,9 @@ const Navbar = (props) => {
           <li>
             <NavLink to="/add">Add a post</NavLink>
           </li>
+          <li>
+            <NavLink to="/all">All posts</NavLink>
+          </li>
         </ul>
       </div>
     </nav>

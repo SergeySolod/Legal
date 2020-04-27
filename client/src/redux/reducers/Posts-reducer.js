@@ -2,9 +2,11 @@ import { PostsApi } from "../../api/PostsApi";
 
 export const SET_POSTS = "LegalQuestions/Posts-reducer/SET_POSTS";
 export const SET_POST = "LegalQuestions/Posts-reducer/SET_POST";
+export const SET_ALL_POSTS = "LegalQuestions/Posts-reducer/SET_ALL_POSTS";
 
 let initialState = {
   posts: [],
+  allposts: [],
   post: {},
 };
 
@@ -14,6 +16,11 @@ const PostsReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: [...action.posts],
+      };
+    case SET_ALL_POSTS:
+      return {
+        ...state,
+        allposts: [...action.allposts],
       };
     case SET_POST:
       return {
@@ -30,6 +37,11 @@ const setPosts = (posts) => ({
   posts,
 });
 
+const setALlPosts = (allposts) => ({
+  type: SET_ALL_POSTS,
+  allposts,
+});
+
 const setPost = (post) => ({
   type: SET_POST,
   post,
@@ -38,6 +50,11 @@ const setPost = (post) => ({
 export const setPostsThunk = () => async (dispatch, getState) => {
   let data = await PostsApi.getPosts(getState().auth.token);
   dispatch(setPosts(data));
+};
+
+export const setAllPostsThunk = () => async (dispatch, getState) => {
+  let data = await PostsApi.getPostsAll();
+  dispatch(setALlPosts(data));
 };
 
 export const setPostThunk = (id) => async (dispatch, getState) => {

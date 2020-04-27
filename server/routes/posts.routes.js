@@ -63,7 +63,7 @@ router.get('/my/:id', auth, async (req, res) => {
     }
 })
 
-router.get('/all', auth, async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
     Post.find().then((err, posts) => {
       if (err) {
