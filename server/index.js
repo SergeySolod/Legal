@@ -35,49 +35,6 @@ async function start() {
 
 start()
 
-// app.post('/customer', (req, res) => {
-//
-//   const data = req.body;
-//
-//   const customer = new CustomerModel({
-//     name: data.name,
-//     description: data.description,
-//   });
-//
-//   customer.save().then(() => {
-//     res.send({ status: 'ok' })
-//   })
-// });
-//
-// app.get('/customers', (req, res) => {
-//   CustomerModel.find().then((err, customers) => {
-//     if (err) {
-//       res.send(err);
-//     }
-//     res.json(customers);
-//   })
-// })
-//
-// app.delete('/customers/:id', (req, res) => {
-//   CustomerModel.remove({
-//     _id: req.params.id
-//   }).then(customer => {
-//     if (customer) {
-//       res.json({ status: 'deleted' })
-//     } else {
-//       res.json({ status: 'error' })
-//     }
-//   })
-// })
-//
-// app.put('/customers/:id', (req, res) => {
-//   CustomerModel.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
-//     if (err) {
-//       res.send(err)
-//     }
-//     res.json({ status: 'updated' })
-//   })
-// })
 
 
 
