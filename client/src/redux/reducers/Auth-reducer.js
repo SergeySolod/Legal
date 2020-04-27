@@ -1,3 +1,5 @@
+import {AuthApi} from "../../api/AuthApi";
+
 export const LOGIN = 'LegalQuestions/Auth-reducer/LOGIN'
 export const LOGOUT = 'LegalQuestions/Auth-reducer/LOGOUT'
 
@@ -32,5 +34,11 @@ const AuthReducer = (state = initialState, action) => {
 
 export const login = (token, userId) => ({type: LOGIN, token, userId})
 export const logout = () => ({type: LOGOUT})
+
+export const setLoginThunk = (formData) => async (dispatch, getState) => {
+    let data = await AuthApi.login(formData);
+    dispatch(login(data.token, data.userId));
+};
+
 
 export default AuthReducer

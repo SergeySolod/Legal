@@ -55,6 +55,7 @@ router.get('/:id', auth, async (req, res) => {
             if (err) {
                 res.send(err);
             }
+
             res.json(post);
         })
     } catch (e) {

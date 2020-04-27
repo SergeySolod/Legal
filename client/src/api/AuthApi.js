@@ -1,39 +1,14 @@
 import axios from "axios";
 
-export const PostsApi = {
-    login(token) {
-        return axios({
-            url: `/api/posts`,
-            method: 'get',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(response => {
-                return response.data;
-            })
-    },
-    getPost(id, token) {
-        return axios({
-            url: `/api/posts/${id}`,
-            method: 'get',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(response => {
-                return response.data;
-            })
-    },
-    postPosts(formData, token) {
+export const AuthApi = {
+    login(formData) {
         formData = JSON.stringify(formData)
         return axios({
-            url: `/api/posts/generate`,
+            url: `/api/auth/login`,
             method: 'post',
             data: formData,
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json'
             }
         })
             .then(response => {
