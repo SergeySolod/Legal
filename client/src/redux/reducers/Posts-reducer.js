@@ -63,7 +63,15 @@ export const setPostThunk = (id) => async (dispatch, getState) => {
 };
 
 export const postPostThunk = (formData) => async (dispatch, getState) => {
-  let data = await PostsApi.postPosts(formData, getState().auth.token);
+  let data = await PostsApi.postPost(formData, getState().auth.token);
+};
+
+export const putPostThunk = (id, formData) => async (dispatch, getState) => {
+  let data = await PostsApi.putPost(id, formData, getState().auth.token);
+};
+
+export const deletePostThunk = (id) => async (dispatch, getState) => {
+  let data = await PostsApi.deletePost(id, getState().auth.token);
 };
 
 export default PostsReducer;

@@ -17,9 +17,15 @@ const Posts = (props) => {
               <span className="card-title">{post.title}</span>
               <p>{post.text}</p>
             </div>
-            <div className="card-action">
+            <div className="card-action card-button">
               <NavLink to={`/posts/${post._id}`}>View answer</NavLink>
               <p>{new Date(post.date).toLocaleDateString()}</p>
+              <a
+                onClick={() => {}}
+                className="waves-effect waves-light btn-small"
+              >
+                Удалить
+              </a>
             </div>
           </div>
         ))}

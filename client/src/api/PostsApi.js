@@ -31,7 +31,35 @@ export const PostsApi = {
       return response.data;
     });
   },
-  postPosts(formData, token) {
+  postPost(formData, token) {
+    formData = JSON.stringify(formData);
+    return axios({
+      url: `/api/posts/generate`,
+      method: "post",
+      data: formData,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => {
+      return response.data;
+    });
+  },
+  putPost(formData, token) {
+    formData = JSON.stringify(formData);
+    return axios({
+      url: `/api/posts/generate`,
+      method: "post",
+      data: formData,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => {
+      return response.data;
+    });
+  },
+  deletePost(formData, token) {
     formData = JSON.stringify(formData);
     return axios({
       url: `/api/posts/generate`,
