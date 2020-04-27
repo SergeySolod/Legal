@@ -66,12 +66,19 @@ export const postPostThunk = (formData) => async (dispatch, getState) => {
   let data = await PostsApi.postPost(formData, getState().auth.token);
 };
 
-export const putPostThunk = (id, formData) => async (dispatch, getState) => {
-  let data = await PostsApi.putPost(id, formData, getState().auth.token);
+export const putPostThunk = (formData) => async (dispatch, getState) => {
+  let data = await PostsApi.putPost(
+    getState().posts.post._id,
+    formData,
+    getState().auth.token
+  );
 };
 
-export const deletePostThunk = (id) => async (dispatch, getState) => {
-  let data = await PostsApi.deletePost(id, getState().auth.token);
+export const deletePostThunk = () => async (dispatch, getState) => {
+  let data = await PostsApi.deletePost(
+    getState().posts.post._id,
+    getState().auth.token
+  );
   console.log(data);
 };
 

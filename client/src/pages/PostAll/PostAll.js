@@ -5,9 +5,9 @@ import {
   deletePostThunk,
   setPostThunk,
 } from "../../redux/reducers/Posts-reducer";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-const Post = (props) => {
+const PostAll = (props) => {
   const postId = useParams().id;
   useEffect(() => {
     props.setPostThunk(postId);
@@ -20,17 +20,6 @@ const Post = (props) => {
             <span className="card-title">{props.post.title}</span>
             <p>{props.post.text}</p>
             <p>{new Date(props.post.date).toLocaleDateString()}</p>
-            <div className="card-action card-button">
-              <NavLink to={`/change/${props.post.id}`}>Редактировать</NavLink>
-              <a
-                onClick={() => {
-                  props.deletePostThunk();
-                }}
-                className="waves-effect waves-light btn-small"
-              >
-                Удалить
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -46,4 +35,4 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps, { setPostThunk, deletePostThunk })
-)(Post);
+)(PostAll);
