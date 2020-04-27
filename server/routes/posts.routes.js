@@ -63,6 +63,19 @@ router.get('/my/:id', auth, async (req, res) => {
     }
 })
 
+router.get('/all', auth, async (req, res) => {
+  try {
+    Post.find().then((err, posts) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json(posts);
+    })
+  } catch (e) {
+    res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+  }
+})
+
 router.post('/generate', auth, async (req, res) => {
     try {
         const data = req.body;

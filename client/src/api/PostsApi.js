@@ -23,17 +23,9 @@ export const PostsApi = {
       return response.data;
     });
   },
-  getPostsAll(token) {
+  getPostsAll() {
     return axios({
       url: `/api/posts/all`,
-      method: "get",
-    }).then((response) => {
-      return response.data;
-    });
-  },
-  getPostAll(id, token) {
-    return axios({
-      url: `/api/posts/all/${id}`,
       method: "get",
     }).then((response) => {
       return response.data;
