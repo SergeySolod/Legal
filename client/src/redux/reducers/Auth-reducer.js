@@ -40,5 +40,9 @@ export const setLoginThunk = (formData) => async (dispatch, getState) => {
     dispatch(login(data.token, data.userId));
 };
 
+export const setRegisterThunk = (formData) => async (dispatch, getState) => {
+    let data = await AuthApi.register(formData);
+    console.log(data)
+};
 
 export default AuthReducer

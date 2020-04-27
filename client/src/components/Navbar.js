@@ -13,7 +13,7 @@ const Navbar = (props) => {
                     <li><a onClick={() => {
                         props.logout()
                         localStorage.removeItem('userData')
-                    }} href="javascript:void(0)">Logout</a></li>
+                    }}>Logout</a></li>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/posts">Posts</NavLink></li>
                     <li><NavLink to="/add">Add a post</NavLink></li>

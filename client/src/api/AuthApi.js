@@ -14,5 +14,19 @@ export const AuthApi = {
             .then(response => {
                 return response.data;
             })
+    },
+    register(formData) {
+        formData = JSON.stringify(formData)
+        return axios({
+            url: `/api/auth/register`,
+            method: 'post',
+            data: formData,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => {
+                return response.data;
+            })
     }
 }
