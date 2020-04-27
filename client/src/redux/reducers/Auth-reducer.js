@@ -36,12 +36,20 @@ export const logout = () => ({ type: LOGOUT });
 
 export const setLoginThunk = (formData) => async (dispatch, getState) => {
   let data = await AuthApi.login(formData);
-  dispatch(login(data.token, data.userId));
+  if (data.token) {
+    dispatch(login(data.token, data.userId));
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({
+        token: data.token,
+        userId: data.userId,
+      })
+    );
+  }
 };
 
 export const setRegisterThunk = (formData) => async (dispatch, getState) => {
   let data = await AuthApi.register(formData);
-  console.log(data);
 };
 
 export default AuthReducer;

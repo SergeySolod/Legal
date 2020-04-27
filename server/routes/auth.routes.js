@@ -83,7 +83,7 @@ router.post(
             // по умолчанию статус 200
             res.json({ token, userId: user.id })
         } catch (e) {
-            res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+            res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
         }
 })
 
