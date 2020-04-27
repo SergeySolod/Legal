@@ -1,6 +1,8 @@
 import React, { useState }  from 'react';
 import { AppLoading } from 'expo'
 import { Provider } from 'react-redux'
+import { AppNavigation } from './src/navigation/AppNavigation'
+import store from './src/redux/redux-store'
 
 const App =() => {
   const [isReady, setIsReady] = useState(false)
@@ -8,6 +10,7 @@ const App =() => {
   if (!isReady) {
     return (
       <AppLoading
+        startAsync={bootstrap}
         onFinish={() => setIsReady(true)}
         onError={err => console.log(err)}
       />
