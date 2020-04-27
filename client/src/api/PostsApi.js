@@ -48,7 +48,7 @@ export const PostsApi = {
   putPost(id, formData, token) {
     formData = JSON.stringify(formData);
     return axios({
-      url: `/api/posts/generate`,
+      url: `/api/posts/change/${id}`,
       method: "put",
       data: formData,
       headers: {

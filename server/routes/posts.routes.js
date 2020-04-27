@@ -93,18 +93,17 @@ router.post('/generate', auth, async (req, res) => {
     }
 })
 
-router.put('/put/:id', auth, async (req, res) => {
-  //   try {
-  //       Post.remove(req.params.id, {$set: req.body}, (err) => {
-  //   if (err) {
-  //     res.send(err)
-  //   }
-  //   res.json({ status: 'The post has been changed' })
-  // })
-  //
-  //   } catch (e) {
-  //       res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-  //   }
+router.put('/change/:id', auth, async (req, res) => {
+    try {
+      Post.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
+      if (err) {
+        res.send(err)
+      }
+      res.json({ status: 'The post has been changes' })
+  })
+    } catch (e) {
+        res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+    }
 })
 
 router.delete('/delete/:id', auth, async (req, res) => {
