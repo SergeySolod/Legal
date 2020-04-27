@@ -21,7 +21,7 @@ const Post = (props) => {
             <p>{props.post.text}</p>
             <p>{new Date(props.post.date).toLocaleDateString()}</p>
             <div className="card-action card-button">
-              <NavLink to={`/change/${props.post.id}`}>Редактировать</NavLink>
+              <NavLink to={`/change/${props.post._id}`}>Редактировать</NavLink>
               <a
                 onClick={() => {
                   props.deletePostThunk();

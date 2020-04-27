@@ -45,7 +45,7 @@ export const PostsApi = {
       return response.data;
     });
   },
-  putPost(formData, token) {
+  putPost(id, formData, token) {
     formData = JSON.stringify(formData);
     return axios({
       url: `/api/posts/generate`,

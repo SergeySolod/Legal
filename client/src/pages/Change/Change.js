@@ -13,7 +13,7 @@ const ChangeForm = (props) => {
         <div className="col s12">
           <div className="card #43a047 green darken-1">
             <div className="card-content white-text">
-              <span className="card-title">Add a post</span>
+              <span className="card-title">Change this post</span>
               <div>
                 <div className="input-field">
                   <Field
@@ -40,7 +40,7 @@ const ChangeForm = (props) => {
                 className="btn yellow darken-4"
                 style={{ marginRight: 10 }}
               >
-                Add
+                Change
               </button>
             </div>
           </div>
