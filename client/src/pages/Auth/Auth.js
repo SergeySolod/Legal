@@ -10,45 +10,6 @@ import { Input } from "../../components/FormsControl";
 import { required } from "../../components/Validators";
 
 const AuthForm = (props) => {
-  // const message = useMessage()
-  // const {loading, request, error, clearError} = useHttp()
-  // const [form, setForm] = useState({
-  //     email: '', password: ''
-  // })
-  //
-  // useEffect(() => {
-  //     window.M.updateTextFields()
-  // }, [])
-  //
-  // useEffect(() => {
-  //     message(error)
-  //     clearError()
-  // }, [error, message, clearError])
-  //
-  // const changeHandler = event => {
-  //     setForm({...form, [event.target.name]: event.target.value});
-  // };
-  //
-  // const registerHandler = async () => {
-  //     try {
-  //         const data = await request("/api/auth/register", "POST", {...form});
-  //         message(data.message)
-  //     } catch (e) {
-  //     }
-  // };
-  //
-  // const loginHandler = async () => {
-  //     try {
-  //         const data = await request("/api/auth/login", "POST", {...form});
-  //         message(data.message)
-  //         props.login(data.token, data.userId)
-  //         localStorage.setItem('userData', JSON.stringify({
-  //             token: data.token, userId: data.userId
-  //         }))
-  //     } catch (e) {
-  //     }
-  // };
-
   return (
     <form onSubmit={props.handleSubmit}>
       <div className="row">

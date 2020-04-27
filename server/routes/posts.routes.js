@@ -1,40 +1,7 @@
 const {Router} = require('express')
 const Post = require('../models/Post')
 const router = Router()
-const config = require('config')
 const auth = require('../middleware/auth.middleware')
-
-// router.post('/generate', async (req, res) => {
-//     try {
-//         const baseUrl = config.get('baseUrl')
-//         //from - путь, откуда мы делаем запрос, получаем с frontend
-//         const {from} = req.body
-//
-//
-//
-//     } catch (e) {
-//         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-//     }
-// })
-
-// router.get('/my', async (req, res) => {
-//     try {
-//         //ждём пока модель Post найдёт все вопросы которые относятся к текущему пользователю
-//         const questions = await Post.find({owner: req.user.userId}) // ???
-//         res.json(questions)
-//     } catch (e) {
-//         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-//     }
-// })
-//
-// router.get('/my/:id', async (req, res) => {
-//     try {
-//         const question = await Post.findById(req.params.id) // ???
-//         res.json(question)
-//     } catch (e) {
-//         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-//     }
-// })
 
 router.get('/my', auth, async (req, res) => {
     try {
@@ -95,6 +62,7 @@ router.post('/generate', auth, async (req, res) => {
 
 router.put('/change/:id', auth, async (req, res) => {
     try {
+      console.log(req.body)
       Post.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
       if (err) {
         res.send(err)
@@ -122,29 +90,5 @@ router.delete('/delete/:id', auth, async (req, res) => {
     res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
   }
 })
-
-// app.delete('/customers/:id', (req, res) => {
-//   CustomerModel.remove({
-//     _id: req.params.id
-//   }).then(customer => {
-//     if (customer) {
-//       res.json({ status: 'deleted' })
-//     } else {
-//       res.json({ status: 'error' })
-//     }
-//   })
-// })
-//
-// app.put('/customers/:id', (req, res) => {
-//   CustomerModel.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
-//     if (err) {
-//       res.send(err)
-//     }
-//     res.json({ status: 'updated' })
-//   })
-// })
-
-
-
 
 module.exports = router
