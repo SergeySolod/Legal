@@ -11,7 +11,7 @@ const AllPosts = (props) => {
   return (
     <div className="row">
       <div className="col s12">
-        {props.posts.map((post) => (
+        {props.allposts.map((post) => (
           <div className="card #43a047 green darken-1" key={post._id}>
             <div className="card-content white-text">
               <span className="card-title">{post.title}</span>
@@ -30,7 +30,7 @@ const AllPosts = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.posts.posts,
+    allposts: state.posts.allposts,
   };
 };
 
