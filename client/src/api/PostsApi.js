@@ -49,7 +49,7 @@ export const PostsApi = {
     formData = JSON.stringify(formData);
     return axios({
       url: `/api/posts/generate`,
-      method: "post",
+      method: "put",
       data: formData,
       headers: {
         "Content-Type": "application/json",
@@ -59,14 +59,11 @@ export const PostsApi = {
       return response.data;
     });
   },
-  deletePost(formData, token) {
-    formData = JSON.stringify(formData);
+  deletePost(id, token) {
     return axios({
-      url: `/api/posts/generate`,
-      method: "post",
-      data: formData,
+      url: `/api/posts/delete/${id}`,
+      method: "delete",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     }).then((response) => {

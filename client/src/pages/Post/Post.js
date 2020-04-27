@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { setPostThunk } from "../../redux/reducers/Posts-reducer";
+import {
+  deletePostThunk,
+  setPostThunk,
+} from "../../redux/reducers/Posts-reducer";
 import { useParams } from "react-router-dom";
 
 const Post = (props) => {
@@ -17,6 +20,14 @@ const Post = (props) => {
             <span className="card-title">{props.post.title}</span>
             <p>{props.post.text}</p>
             <p>{new Date(props.post.date).toLocaleDateString()}</p>
+            <a
+              onClick={() => {
+                props.deletePostThunk(postId);
+              }}
+              className="waves-effect waves-light btn-small"
+            >
+              Удалить
+            </a>
           </div>
         </div>
       </div>
@@ -30,4 +41,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps, { setPostThunk }))(Post);
+export default compose(
+  connect(mapStateToProps, { setPostThunk, deletePostThunk })
+)(Post);

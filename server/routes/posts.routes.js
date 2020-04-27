@@ -94,27 +94,30 @@ router.post('/generate', auth, async (req, res) => {
 })
 
 router.put('/put/:id', auth, async (req, res) => {
-    try {
-        Post.remove(req.params.id, {$set: req.body}, (err) => {
-    if (err) {
-      res.send(err)
-    }
-    res.json({ status: 'The post has been changed' })
-  })
-
-    } catch (e) {
-        res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-    }
+  //   try {
+  //       Post.remove(req.params.id, {$set: req.body}, (err) => {
+  //   if (err) {
+  //     res.send(err)
+  //   }
+  //   res.json({ status: 'The post has been changed' })
+  // })
+  //
+  //   } catch (e) {
+  //       res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+  //   }
 })
 
 router.delete('/delete/:id', auth, async (req, res) => {
   try {
-    Post.findByIdAndUpdate(req.params.id, {$set: req.body}, (err) => {
-      if (err) {
-        res.send(err)
-      }
-      res.json({ status: 'The post has been changed' })
-    })
+    Post.remove({
+    _id: req.params.id
+  }).then(customer => {
+    if (customer) {
+      res.json({ status: 'deleted' })
+    } else {
+      res.json({ status: 'error' })
+    }
+  })
 
   } catch (e) {
     res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})

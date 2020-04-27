@@ -72,6 +72,7 @@ export const putPostThunk = (id, formData) => async (dispatch, getState) => {
 
 export const deletePostThunk = (id) => async (dispatch, getState) => {
   let data = await PostsApi.deletePost(id, getState().auth.token);
+  console.log(data);
 };
 
 export default PostsReducer;
