@@ -36,9 +36,9 @@ const auth = require('../middleware/auth.middleware')
 //     }
 // })
 
-router.get('/', auth, async (req, res) => {
+router.get('/my', auth, async (req, res) => {
     try {
-        Post.find().then((err, posts) => {
+        Post.find({owner: req.user.userId}).then((err, posts) => {
             if (err) {
                 res.send(err);
             }
@@ -49,7 +49,7 @@ router.get('/', auth, async (req, res) => {
     }
 })
 
-router.get('/:id', auth, async (req, res) => {
+router.get('/my/:id', auth, async (req, res) => {
     try {
         Post.findById(req.params.id).then((err, post) => {
             if (err) {

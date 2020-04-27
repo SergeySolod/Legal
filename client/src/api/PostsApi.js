@@ -3,7 +3,7 @@ import axios from "axios";
 export const PostsApi = {
   getPosts(token) {
     return axios({
-      url: `/api/posts`,
+      url: `/api/posts/my`,
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -14,7 +14,7 @@ export const PostsApi = {
   },
   getPost(id, token) {
     return axios({
-      url: `/api/posts/${id}`,
+      url: `/api/posts/my/${id}`,
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,
