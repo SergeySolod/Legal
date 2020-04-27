@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { setLoginThunk } from "../../redux/reducers/Auth-reducer";
+import {
+  setLoginThunk,
+  setRegisterThunk,
+} from "../../redux/reducers/Auth-reducer";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../../components/FormsControl";
 import { required } from "../../components/Validators";
@@ -77,13 +80,21 @@ const AuthForm = (props) => {
               </div>
             </div>
             <div className="card-action">
-              {/*<button*/}
-              {/*className="btn yellow darken-4"*/}
-              {/*style={{marginRight: 10}}*/}
-              {/*>*/}
-              {/*Login*/}
-              {/*</button>*/}
-              <button className="btn grey lighten-1 black-text">
+              <button
+                className="btn yellow darken-4"
+                style={{ marginRight: 10 }}
+                onClick={() => {
+                  props.changeIsRegistration(false);
+                }}
+              >
+                Login
+              </button>
+              <button
+                className="btn grey lighten-1 black-text"
+                onClick={() => {
+                  props.changeIsRegistration(true);
+                }}
+              >
                 Registration
               </button>
             </div>
@@ -97,12 +108,21 @@ const AuthForm = (props) => {
 const AuthReduxForm = reduxForm({ form: "auth" })(AuthForm);
 
 const Auth = (props) => {
+  const [isRegistration, changeIsRegistration] = useState(false);
   const onSubmit = (formData) => {
-    props.setLoginThunk(formData);
+    if (isRegistration === false) {
+      props.setLoginThunk(formData);
+    } else {
+      props.setRegisterThunk(formData);
+    }
   };
+
   return (
     <>
-      <AuthReduxForm onSubmit={onSubmit} />
+      <AuthReduxForm
+        onSubmit={onSubmit}
+        changeIsRegistration={changeIsRegistration}
+      />
     </>
   );
 };
@@ -111,4 +131,6 @@ const mapStateToProps = (state) => {
   return {};
 };
 
-export default compose(connect(mapStateToProps, { setLoginThunk }))(Auth);
+export default compose(
+  connect(mapStateToProps, { setLoginThunk, setRegisterThunk })
+)(Auth);
