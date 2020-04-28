@@ -1,5 +1,6 @@
 import React from "react";
 import {View, Text, StyleSheet} from 'react-native'
+import Posts from "../Posts/Posts";
 
 const Post = () => {
     return (
@@ -10,6 +11,10 @@ const Post = () => {
         </View>
     );
 };
+
+Post.navigationOptions = {
+    headerTitle: 'Post page'
+}
 
 const styles = StyleSheet.create({
     center: {

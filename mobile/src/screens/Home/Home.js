@@ -1,7 +1,13 @@
 import React from "react";
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, Button} from 'react-native'
 
-const Home = () => {
+const Home = (props) => {
+    const goPosts = () => {
+        props.navigation.navigate('Posts')
+    }
+    const goAddPost = () => {
+        props.navigation.navigate('Add')
+    }
     return (
         <View style={styles.center}>
             <Text>
@@ -11,9 +17,15 @@ const Home = () => {
                 The Icelandic Society of Cardiology and the Swedish Society of Cardiology. He is a past president of the
                 Icelandic Cardiac Society.
             </Text>
+            <Button title='Posts' onPress={goPosts}/>
+            <Button title='Add post' onPress={goAddPost}/>
         </View>
     );
 };
+
+Home.navigationOptions = {
+    headerTitle: 'Home page'
+}
 
 const styles = StyleSheet.create({
     center: {

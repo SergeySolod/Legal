@@ -1,15 +1,20 @@
 import React from "react";
 import {View, Text, StyleSheet} from 'react-native'
+import Change from "../Change/Change";
 
 const Add = () => {
     return (
         <View style={styles.center}>
             <Text>
-              Post page
+              Add post page
             </Text>
         </View>
     );
 };
+
+Add.navigationOptions = {
+    headerTitle: 'Add page'
+}
 
 const styles = StyleSheet.create({
     center: {

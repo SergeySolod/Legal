@@ -11,6 +11,10 @@ const Posts = () => {
     );
 };
 
+Posts.navigationOptions = {
+    headerTitle: 'Posts page'
+}
+
 const styles = StyleSheet.create({
     center: {
         flex: 1,
