@@ -6,14 +6,14 @@ import Posts from "../screens/Posts/Posts";
 import Add from "../screens/Add/Add";
 import Change from "../screens/Change/Change";
 
-const PostNavigator = createStackNavigator({
-  Home: Home,
-  Post: Post,
-  Posts: Posts,
-  Add: Add,
-  Change: Change,
-}, {
-  initialRouteName: Home
-})
+const PostNavigator = createStackNavigator(
+    {
+        Home: Home,
+        Post: Post,
+        Posts: Posts,
+        Add: Add,
+        Change: Change,
+    },
+)
 
 export const AppNavigation = createAppContainer(PostNavigator)
