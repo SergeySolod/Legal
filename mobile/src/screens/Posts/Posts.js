@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from 'react'
+import {connect} from "react-redux";
 import {View, Text, StyleSheet, FlatList} from 'react-native'
 
 const Posts = () => {
-    return <View><FlatList /></View>
+    useEffect(() => {
+       console.log('asd')
+    }, [])
+    return <View style={styles.wrapper}><FlatList /></View>
 };
 
 Posts.navigationOptions = {
@@ -10,11 +14,15 @@ Posts.navigationOptions = {
 }
 
 const styles = StyleSheet.create({
-    center: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+    wrapper: {
+       padding: 10
     }
 })
 
-export default Posts;
+const mapStateToProps = state => {
+    return {
+
+    };
+};
+
+export default connect(mapStateToProps, {})(Posts)
