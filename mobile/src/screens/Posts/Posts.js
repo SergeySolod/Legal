@@ -1,14 +1,8 @@
 import React from "react";
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, FlatList} from 'react-native'
 
 const Posts = () => {
-    return (
-        <View style={styles.center}>
-            <Text>
-              Posts page
-            </Text>
-        </View>
-    );
+    return <View><FlatList /></View>
 };
 
 Posts.navigationOptions = {
