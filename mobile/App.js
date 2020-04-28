@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
 import {AppLoading} from 'expo'
 import {AppNavigation} from './src/navigation/AppNavigation'
 import {bootstrap} from "./src/bootstrap";
-import store from './src/store'
+import store from './src/redux/redux-store'
+import {Provider} from "react-redux";
 
 export default function App() {
     const [isReady, setIsReady] = useState(false)
