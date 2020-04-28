@@ -1,19 +1,26 @@
 import React from "react";
+import {View, Text, StyleSheet} from 'react-native'
 
 const Home = () => {
-  return (
-    <div className="row">
-      <div className="col s12">
-        <p className="flow-text">
-          На LegalQuestions.ru вы можете быстро получить консультацию юриста
-          онлайн или по телефону. Юридическая помощь предоставляется на
-          бесплатной и платной основе. Задайте вопрос прямо сейчас, и его увидят
-          сотни профессионалов со всей России. Первый ответ вы получите уже
-          через 15 минут!
-        </p>
-      </div>
-    </div>
-  );
+    return (
+        <View className="row">
+            <Text>
+                Dr. Sigurdsson is a cardiologist at the Department of Cardiology at The Landspitali University Hospital
+                in Reykjavik Iceland. He also practices cardiology at Hjartamidstodin (The Heart Center) which is a
+                private heart clinic in the Reykjavik area. He is a Fellow of the American College of Cardiology (ACC),
+                The Icelandic Society of Cardiology and the Swedish Society of Cardiology. He is a past president of the
+                Icelandic Cardiac Society.
+            </Text>
+        </View>
+    );
 };
+
+const styles = StyleSheet.create({
+    center: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+})
 
 export default Home;
