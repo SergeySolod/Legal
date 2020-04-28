@@ -12,6 +12,8 @@ const PostNavigator = createStackNavigator({
   Posts: Posts,
   Add: Add,
   Change: Change,
+}, {
+  initialRouteName: Home
 })
 
 export const AppNavigation = createAppContainer(PostNavigator)
