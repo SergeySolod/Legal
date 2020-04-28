@@ -1,8 +1,8 @@
 import { PostsApi } from "../../api/PostsApi";
 
-export const SET_POSTS = "LegalQuestions/Posts-reducer/SET_POSTS";
-export const SET_POST = "LegalQuestions/Posts-reducer/SET_POST";
-export const SET_ALL_POSTS = "LegalQuestions/Posts-reducer/SET_ALL_POSTS";
+export const SET_POSTS = "LegalQuestions/Change-reducer/SET_POSTS";
+export const SET_POST = "LegalQuestions/Change-reducer/SET_POST";
+export const SET_ALL_POSTS = "LegalQuestions/Change-reducer/SET_ALL_POSTS";
 
 let initialState = {
   posts: [],

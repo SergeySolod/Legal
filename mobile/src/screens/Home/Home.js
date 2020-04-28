@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native'
 
 const Home = () => {
     return (
-        <View className="row">
+        <View style={styles.center}>
             <Text>
                 Dr. Sigurdsson is a cardiologist at the Department of Cardiology at The Landspitali University Hospital
                 in Reykjavik Iceland. He also practices cardiology at Hjartamidstodin (The Heart Center) which is a
