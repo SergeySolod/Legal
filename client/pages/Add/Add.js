@@ -4,7 +4,7 @@ import { Input } from "../../components/FormsControl";
 import { required } from "../../components/Validators";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { postPostThunk } from "../../redux/reducers/Posts-reducer";
+import { postPostThunk } from "../../store/reducers/Posts-reducer";
 
 const AddForm = (props) => {
   return (
